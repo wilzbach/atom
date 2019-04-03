@@ -37,13 +37,19 @@ apm install ide-storyscript
 npm install
 ```
 
-2) Mark package as development package
+2) Compile source code
 
 ```sh
-apm develop
+npm run compile
 ```
 
-3) Launch Atom as development instance
+3) Mark package as development package
+
+```sh
+apm develop ide-storyscript .
+```
+
+4) Launch Atom as development instance
 
 ```sh
 atom -d

@@ -90,6 +90,9 @@
     "cson": "^5.1.0",
     "typescript": "^3.4.1"
   },
+  "scripts": {
+    "compile": "tsc"
+  },
   "package-deps": [
     "atom-ide-ui:^0.5.3"
   ]
