@@ -1,13 +1,23 @@
-const cp = require('child_process');
-const path = require('path');
-const {AutoLanguageClient} = require('atom-languageclient')
+import * as cp from 'child_process';
+import * as path from 'path';
+import * as net from 'net';
+import {
+    AutoLanguageClient,
+    ConnectionType,
+    LanguageServerProcess
+} from 'atom-languageclient';
 
 class StoryscriptLanguageClient extends AutoLanguageClient {
-  getGrammarScopes () { return [ 'source.story' ] }
-  getLanguageName () { return 'Storyscript' }
-  getServerName () { return 'SLS' }
+  getGrammarScopes(): string[] { return [ 'source.story' ] }
+  getLanguageName(): string { return 'Storyscript' }
+  getServerName(): string { return 'SLS' }
 
-  startServerProcess () {
+  public activate(): void {
+    super.activate();
+    console.log("activated");
+  }
+
+  startServerProcess(): LanguageServerProcess | Promise<LanguageServerProcess> {
     const connectionType = this.getConnectionType();
     if (connectionType == 'stdio') {
       return this.spawnServer(['--stdio']);
@@ -16,12 +26,11 @@ class StoryscriptLanguageClient extends AutoLanguageClient {
     }
   }
 
-  spawnServer(args) {
+  spawnServer(args) : LanguageServerProcess {
     const slsBin = 'sls';
     const serverHome = path.join(__dirname, '..');
     this.logger.debug(`starting "${slsBin} ${args.join(' ')}"`)
     const childProcess = cp.spawn(slsBin, args, { cwd: serverHome })
-    this.captureServerErrors(childProcess)
     childProcess.on('exit', exitCode => {
       if (exitCode != 0 && exitCode != null) {
         atom.notifications.addError('IDE-Storyscript language server stopped unexpectedly.', {
@@ -33,7 +42,7 @@ class StoryscriptLanguageClient extends AutoLanguageClient {
     return childProcess;
   }
 
-  spawnServerWithSocket () {
+  spawnServerSocket(): Promise<LanguageServerProcess> {
     return new Promise((resolve, reject) => {
       let childProcess
       const server = net.createServer(socket => {
@@ -47,7 +56,7 @@ class StoryscriptLanguageClient extends AutoLanguageClient {
     })
   }
 
-  getConnectionType() {
+  getConnectionType() : ConnectionType {
     const connectionType = atom.config.get('ide-storyscript.connectionType');
     switch (connectionType) {
       case 'auto':    return process.platform === 'win32' ? 'socket' : 'stdio';
@@ -68,4 +77,6 @@ class StoryscriptLanguageClient extends AutoLanguageClient {
 
 }
 
-module.exports = new StoryscriptLanguageClient();
+console.log("fo2");
+const client = new StoryscriptLanguageClient();
+export = client;
