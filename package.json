@@ -1,6 +1,6 @@
 {
   "name": "ide-storyscript",
-  "main": "./lib/storyscript",
+  "main": "./out/storyscript.js",
   "version": "0.0.0",
   "description": "Storyscript support",
   "keywords": [
@@ -81,6 +81,16 @@
     }
   },
   "dependencies": {
-    "atom-languageclient": "^0.9.9"
-  }
+    "atom-languageclient": "^0.9.9",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@types/atom": "^1.31.1",
+    "@types/node": "^8.0.0",
+    "cson": "^5.1.0",
+    "typescript": "^3.4.1"
+  },
+  "package-deps": [
+    "atom-ide-ui:^0.5.3"
+  ]
 }
