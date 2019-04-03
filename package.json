@@ -9,7 +9,7 @@
     "highlighting",
     "grammar"
   ],
-  "repository": "https://github.com/storyscript/atom",
+  "repository": "git@github.com:storyscript/atom",
   "license": "Apache-2.0",
   "engines": {
     "atom": ">=1.21.0"
