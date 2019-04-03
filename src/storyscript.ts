@@ -7,30 +7,35 @@ import {
     LanguageServerProcess
 } from 'atom-languageclient';
 
+import { bootstrap } from './bootstrap';
+
 class StoryscriptLanguageClient extends AutoLanguageClient {
   getGrammarScopes(): string[] { return [ 'source.story' ] }
   getLanguageName(): string { return 'Storyscript' }
   getServerName(): string { return 'SLS' }
+  serverHome: string;
+  slsBinary: string;
 
-  public activate(): void {
-    super.activate();
-    console.log("activated");
+  constructor() {
+    super();
+    this.serverHome = path.join(__dirname, '..');
   }
 
   startServerProcess(): LanguageServerProcess | Promise<LanguageServerProcess> {
-    const connectionType = this.getConnectionType();
-    if (connectionType == 'stdio') {
-      return this.spawnServer(['--stdio']);
-    } else {
-      return this.spawnServerSocket();
-    }
+    return bootstrap(this.serverHome).then((slsBinary: string) => {
+        this.slsBinary = slsBinary;
+        const connectionType = this.getConnectionType();
+        if (connectionType == 'stdio') {
+          return this.spawnServer(['--stdio']);
+        } else {
+          return this.spawnServerSocket();
+        }
+    });
   }
 
   spawnServer(args) : LanguageServerProcess {
-    const slsBin = 'sls';
-    const serverHome = path.join(__dirname, '..');
-    this.logger.debug(`starting "${slsBin} ${args.join(' ')}"`)
-    const childProcess = cp.spawn(slsBin, args, { cwd: serverHome })
+    this.logger.debug(`starting "${this.slsBinary} ${args.join(' ')}"`)
+    const childProcess = cp.spawn(this.slsBinary, args, { cwd: this.serverHome })
     childProcess.on('exit', exitCode => {
       if (exitCode != 0 && exitCode != null) {
         atom.notifications.addError('IDE-Storyscript language server stopped unexpectedly.', {
@@ -77,6 +82,5 @@ class StoryscriptLanguageClient extends AutoLanguageClient {
 
 }
 
-console.log("fo2");
 const client = new StoryscriptLanguageClient();
 export = client;
