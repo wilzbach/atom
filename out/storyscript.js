@@ -25,7 +25,7 @@ class StoryscriptLanguageClient extends atom_languageclient_1.AutoLanguageClient
         });
     }
     spawnServer(args) {
-        this.logger.debug(`starting "${this.slsBinary} ${args.join(' ')}"`);
+        console.log(`[sls] starting "${this.slsBinary}" [${args.join(' ')}]`);
         const childProcess = cp.spawn(this.slsBinary, args, { cwd: this.serverHome });
         childProcess.on('exit', exitCode => {
             if (exitCode != 0 && exitCode != null) {
