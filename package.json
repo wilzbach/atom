@@ -2,7 +2,7 @@
   "name": "ide-storyscript",
   "main": "./out/storyscript.js",
   "version": "0.1.1",
-  "description": "Storyscript support",
+  "description": "Support for Asyncy's Cloud Native Programming Language, Storyscript",
   "keywords": [
     "storyscript",
     "syntax",
