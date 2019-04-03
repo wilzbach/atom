@@ -1,5 +1,1 @@
-'scopeName': 'source.story'
-'name': 'Storyscript'
-'fileTypes': [
-  'story'
-]
+../syntax-highlighter/dist/atom/grammars/storyscript.cson

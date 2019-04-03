@@ -1,0 +1,3 @@
+[submodule "syntax-highlighter"]
+	path = syntax-highlighter
+	url = https://github.com/storyscript/syntax-highlighter
