@@ -26,7 +26,7 @@ class StoryscriptLanguageClient extends AutoLanguageClient {
         this.slsBinary = slsBinary;
         const connectionType = this.getConnectionType();
         if (connectionType == 'stdio') {
-          return this.spawnServer(['--stdio']);
+          return this.spawnServer(['stdio']);
         } else {
           return this.spawnServerSocket();
         }
@@ -56,7 +56,7 @@ class StoryscriptLanguageClient extends AutoLanguageClient {
         resolve(childProcess)
       })
       server.listen(0, '127.0.0.1', () => {
-        childProcess = this.spawnServer([`--port=${server.address().port}`])
+        childProcess = this.spawnServer(['tcp',  `--port=${server.address().port}`])
       })
     })
   }

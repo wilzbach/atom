@@ -56,7 +56,7 @@ export async function bootstrap(extensionDirectory:string) {
     const progress = new Progress();
 
     // check the version of the installed SLS binary
-    const [err, output] = await exec(`${slsBin} --version`);
+    const [err, output] = await exec(`${slsBin} version`);
     if (err) {
         // Version checking failed. we don't know why, but now it's a good idea
         // to run the upgrade setup

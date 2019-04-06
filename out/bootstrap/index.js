@@ -53,7 +53,7 @@ function bootstrap(extensionDirectory) {
         const slsBin = path.join(venvFolder, 'bin', 'sls');
         const progress = new Progress();
         // check the version of the installed SLS binary
-        const [err, output] = yield exec(`${slsBin} --version`);
+        const [err, output] = yield exec(`${slsBin} version`);
         if (err) {
             // Version checking failed. we don't know why, but now it's a good idea
             // to run the upgrade setup
