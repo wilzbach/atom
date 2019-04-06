@@ -4,6 +4,20 @@
 
 Provides Storyscript language support for Atom powered by the [Storyscript Language Server](https://github.com/storyscript/sls).
 
+## Features
+
+### Syntax highlighting
+
+![image](https://user-images.githubusercontent.com/4370550/55664737-a36e4500-5833-11e9-9a8d-3481dd467bf2.png)
+
+### Linting
+
+![atom-lsp-basic2](https://user-images.githubusercontent.com/4370550/55516284-111c4480-566d-11e9-86f1-417ddf048d7e.gif)
+
+### Auto complete
+
+![atom-lsp-basic3](https://user-images.githubusercontent.com/4370550/55664777-49ba4a80-5834-11e9-9efd-a88219f272fa.gif)
+
 ## Installation
 
 Launch Atom Quick Open (Ctrl+P) and go to "Settings View: Install Packages and Themes":
@@ -19,15 +33,6 @@ Alternatively, you can also install `ide-storyscript` via the Atom Package Manag
 ```shell
 apm install ide-storyscript
 ```
-
-## Features
-
-![feature overview](https://user-images.githubusercontent.com/4370550/55516284-111c4480-566d-11e9-86f1-417ddf048d7e.gif)
-
-- Syntax highlighting
-- Autocomplete (provided via the LSP module, WIP)
-- Linting
-- Formatting (WIP)
 
 ## Development
 
