@@ -12,11 +12,11 @@ Provides Storyscript language support for Atom powered by the [Storyscript Langu
 
 ### Linting
 
-![atom-lsp-basic2](https://user-images.githubusercontent.com/4370550/55516284-111c4480-566d-11e9-86f1-417ddf048d7e.gif)
+![atom-linting](https://user-images.githubusercontent.com/4370550/55516284-111c4480-566d-11e9-86f1-417ddf048d7e.gif)
 
-### Auto complete
+### Auto-complete
 
-![atom-lsp-basic3](https://user-images.githubusercontent.com/4370550/55664777-49ba4a80-5834-11e9-9efd-a88219f272fa.gif)
+![atom-auto-complete](https://user-images.githubusercontent.com/4370550/55664777-49ba4a80-5834-11e9-9efd-a88219f272fa.gif)
 
 ## Installation
 
