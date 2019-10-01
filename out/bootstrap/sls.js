@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 // the bundled SLS version
-exports.expectedSLSVersion = '0.1.18';
+exports.expectedSLSVersion = '0.2.0';
 //# sourceMappingURL=sls.js.map
