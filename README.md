@@ -1,6 +1,7 @@
 # Storyscript extension for the Atom editor
 
 [![CircleCI](https://img.shields.io/circleci/project/github/storyscript/atom/master.svg?style=for-the-badge)](https://circleci.com/gh/storyscript/atom)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg?style=for-the-badge)](https://github.com/storyscript/.github/blob/master/CODE_OF_CONDUCT.md)
 
 Provides Storyscript language support for Atom powered by the [Storyscript Language Server](https://github.com/storyscript/sls).
 
